@@ -1,4 +1,4 @@
-exports.helpCommand = function(args, cmd){
+exports.helpCommand = (args, cmd) => {
     if(args.length == 0){
         cmd.channel.send("Commands: \n!ping <person> \n!quote <name> \n!quoteOfTheDay");
     }else{

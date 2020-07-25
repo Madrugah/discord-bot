@@ -1,10 +1,10 @@
 const Command = require('./Command.js');
 const Discord = require('discord.js');
-const auth = require('./auth.json')
+const Auth = require('./auth.json')
 
 const client = new Discord.Client();
 
-client.on('ready', () =>{
+client.on('ready', () => {
     console.log("Now connected");
 
     client.user.setActivity("Runescape");
@@ -20,7 +20,7 @@ client.on('ready', () =>{
     // swagChat.send(att);
 });
 
-client.on("message", (msg) =>{
+client.on("message", (msg) => {
     if(msg.author == client.user) return;
 
     if(msg.content.toLowerCase().includes("binky bonky")){
@@ -34,4 +34,4 @@ client.on("message", (msg) =>{
     return;
 });
 
-client.login(auth.token);
+client.login(Auth.token);
