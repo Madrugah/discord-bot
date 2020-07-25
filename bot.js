@@ -1,5 +1,6 @@
 const Command = require('./Command.js');
 const Discord = require('discord.js');
+const auth = require('./auth.json')
 
 const client = new Discord.Client();
 
@@ -33,4 +34,4 @@ client.on("message", (msg) =>{
     return;
 });
 
-client.login("NzM2NjI1NTIwMTgzMjE0MDgw.Xxxh-Q.QFoGMljcZ1PBLXNev131jNl7gtI");
+client.login(auth.token);
