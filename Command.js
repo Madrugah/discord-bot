@@ -1,6 +1,7 @@
-const Help = require('./commands/Help.js');
-const Ping = require('./commands/Ping.js');
-const Quote = require('./commands/Quote.js');
+const Help = require('./commands/Help');
+const Ping = require('./commands/Ping');
+const Quote = require('./commands/Quote');
+const Spotify = require('./commands/Spotify');
 
 exports.handleCommand = (command) => {
     let cmd = command.content.substr(1);
@@ -20,6 +21,9 @@ exports.handleCommand = (command) => {
             break;
         case "quoteOfTheDay":
             Quote.quoteOfTheDay(args, command);
+            break;
+        case "spotify":
+            Spotify.spotifyCommand(args,command);
             break;
         default:
             command.channel.send("Unknown command");

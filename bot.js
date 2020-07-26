@@ -1,4 +1,4 @@
-const Command = require('./Command.js');
+const Command = require('./Command');
 const Discord = require('discord.js');
 const Auth = require('./auth.json')
 
@@ -21,7 +21,7 @@ Client.on('ready', () => {
 });
 
 Client.on("message", (msg) => {
-    if(msg.author == client.user) return;
+    if(msg.author == Client.user) return;
 
     if(msg.content.toLowerCase().includes("binky bonky")){
         msg.channel.send("ayyy " + msg.author.toString() + " you cool!");
