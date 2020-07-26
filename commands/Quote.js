@@ -1,7 +1,6 @@
 const CopyPasta = require("../CopyPasta.json");
 const https = require('https');
 const fs = require('fs');
-const { Console } = require("console");
 
 exports.quoteCommand = (args,cmd) => {
     if(args.length > 0){
