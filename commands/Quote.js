@@ -32,5 +32,5 @@ exports.quoteOfTheDay = (args,cmd) => {
         response.on("error", (err) => {
             console.log(err);
         });
-    })
+    });
 }
