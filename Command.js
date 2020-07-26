@@ -23,6 +23,9 @@ exports.handleCommand = (command) => {
         case "quoteoftheday":
             Quote.quoteOfTheDay(args, command);
             break;
+        case "addquote":
+            Quote.addQuote(args,command);
+            break;
         case "spotify":
             Spotify.spotifyCommand(args,command);
             break;

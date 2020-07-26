@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.spotifyCommand = (args, cmd) => {
     let user = (cmd.mentions.users.first() == null) ? cmd.author : cmd.mentions.users.first();
-
+    console.log(user);
     if(verifySpotifyActivity(user)) {
         let spotifyActivity = user.presence.activities[0];
 
