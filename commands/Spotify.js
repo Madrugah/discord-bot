@@ -27,7 +27,7 @@ exports.spotifyCommand = (args, cmd) => {
 };
 
 function verifySpotifyActivity(usr){
-    return (usr.presence.activities[0] !== null &&
+    return (usr.presence.activities[0] != null &&
         usr.presence.activities[0].type === "LISTENING" &&
         usr.presence.activities[0].name === "Spotify" &&
         usr.presence.activities[0].assets !== null);
