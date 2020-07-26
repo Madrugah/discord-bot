@@ -1,5 +1,3 @@
-const { User, DiscordAPIError } = require("discord.js");
-
 const Discord = require('discord.js');
 
 exports.spotifyCommand = (args, cmd) => {
@@ -7,14 +5,12 @@ exports.spotifyCommand = (args, cmd) => {
 
     if(verifySpotifyActivity(user)) {
         let spotifyActivity = user.presence.activities[0];
-        console.log(spotifyActivity);
 
         let trackIMG = `https://i.scdn.co/image/${spotifyActivity.assets.largeImage.slice(8)}`;
         let trackURL = `https://open.spotify.com/track/${spotifyActivity.syncID}`;
         let trackName = spotifyActivity.details;
         let trackArtist = spotifyActivity.state;
         let trackAlbum = spotifyActivity.assets.largeText;
-
 
         const embed = new Discord.MessageEmbed()
         .setAuthor("Spotify Track Info", "https://cdn.discordapp.com/emojis/408668371039682560.png")
@@ -25,12 +21,9 @@ exports.spotifyCommand = (args, cmd) => {
         .addField("Artist", trackArtist, false)
         .addField("Listen: ", `[${trackURL}](${trackURL})`, false)
         cmd.channel.send(embed);
-
     }else{
         cmd.channel.send("User isn't listening to Spotify!");
     }
-
-
 };
 
 function verifySpotifyActivity(usr){
