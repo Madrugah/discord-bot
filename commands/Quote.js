@@ -43,13 +43,15 @@ exports.quoteOfTheDay = (args,cmd) => {
 
 exports.addQuote = (args, cmd) => {
     if(args.length >= 2){
-        if(CopyPasta[args[0]] == null){
-            fs.readFile(process.cwd() + "/CopyPasta.json", "utf8", (err,data) =>{
-                if(err){
-                    cmd.channel.send("Error getting quote");
-                }else{
-                    let quotes = JSON.parse(data);
-                    quotes[args[0]] = buildQuote(args);
+        fs.readFile(process.cwd() + "/CopyPasta.json", "utf8", (err,data) =>{
+            if(err){
+                cmd.channel.send("Error getting quote");
+            }else{
+                let quotes = JSON.parse(data);
+                const quote = buildQuote(args);
+
+                if(quotes[args[0]] != null && quotes[args[0] != quote]){
+                    quotes[args[0]] = quote;
 
                     fs.writeFile(process.cwd() + "/CopyPasta.json",JSON.stringify(quotes),"utf8",(err) =>{
                         if(err){
@@ -58,11 +60,11 @@ exports.addQuote = (args, cmd) => {
                             cmd.channel.send("Quote added!");
                         }
                     });
+                }else{
+                    cmd.channel.send("Quote already exists");
                 }
-            });
-        }else{
-            cmd.channel.send("Quote already exists");
-        }
+            }
+        });
     }else{
         cmd.channel.send("Invalid parameters");
     }
