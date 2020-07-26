@@ -48,10 +48,9 @@ exports.addQuote = (args, cmd) => {
                 cmd.channel.send("Error getting quote");
             }else{
                 let quotes = JSON.parse(data);
-                const quote = buildQuote(args);
-
-                if(quotes[args[0]] != null && quotes[args[0] != quote]){
-                    quotes[args[0]] = quote;
+                
+                if(quotes[args[0]] == null){
+                    quotes[args[0]] = buildQuote(args);
 
                     fs.writeFile(process.cwd() + "/CopyPasta.json",JSON.stringify(quotes),"utf8",(err) =>{
                         if(err){
