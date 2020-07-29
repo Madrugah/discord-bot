@@ -6,7 +6,7 @@ exports.jokeCommand = (args, cmd) => {
     if(filter === "Invalid"){
         cmd.channel.send("Invalid Filters");
     }else{
-        const url = `https://sv443.net/jokeapi/v2/joke/${filter}`;
+        const url = `https://sv443.net/jokeapi/v2/joke/Programming`;
         getJoke(url, cmd);
     }
 
@@ -53,10 +53,10 @@ function filterBuilder(args){
                     filter += "Programming,";
                     break;
                 case "miscellaneous":
-                    filter += "Miscellaneous,";
+                    // filter += "Miscellaneous,";
                     break;
                 case "dark":
-                    filter += "Dark,";
+                    // filter += "Dark,";
                     break;
                 default:
                     filter = "Invalid";
