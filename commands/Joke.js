@@ -56,7 +56,7 @@ function filterBuilder(args){
                     filter += "Miscellaneous,";
                     break;
                 case "dark":
-                    filter += "Dark,";
+                    // filter += "Dark,";
                     break;
                 default:
                     filter = "Invalid";
